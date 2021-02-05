@@ -5,8 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals'; 
 import { createOvermind } from 'overmind'
 import { Provider } from 'overmind-react'
-import { config } from './overmind/index'
-
+import {config} from "./overmind";
 
 const overmind = createOvermind(config, {devtools: true}); 
 

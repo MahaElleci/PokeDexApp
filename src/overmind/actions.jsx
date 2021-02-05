@@ -1,5 +1,5 @@
-export const loadApp = ({effects, state}) =>{  
+export const loadApp = async ({effects, state}) =>{   
    state.isLoading = true;
-   state.pokemons = effects.dataPlaceholder.getPokemons(); 
+   state.pokemons = await effects.getPokemons(); 
    state.isLoading = false;
-}
+}  
