@@ -4,10 +4,16 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: #fff; 
+  transition:height 0.5s; 
+  -webkit-transition: width 0.5s; 
+text-align: center; 
+  &__expand {
+        width: 500px; 
+  }
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+    cursor: pointer; 
   }
   &__heading {
     .imagePlaceholder {
@@ -45,5 +51,6 @@
   &__content {
     padding: 2px 16px; 
     list-style: none;
-  }
+  } 
+
 }
