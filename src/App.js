@@ -1,6 +1,5 @@
-import './App.css';  
 import PokeDex from "./components/PokeDexWrapper/PokeDex"; 
-
+import './App.css';  
 const  App = () => { 
   return (
     <div className="App">  

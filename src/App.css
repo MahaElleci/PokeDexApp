@@ -1,4 +1,6 @@
 body {
-    background-color: whitesmoke;
+    background-color: #0000; 
+} 
+body > .popover {
+    width: 300px;
 }
-
