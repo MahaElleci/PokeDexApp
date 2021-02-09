@@ -1,4 +1,4 @@
 export const state = {
-    pokemons: [], 
-    selectedPokemon: {}
-}
+  pokemons: [],
+  selectedPokemon: {},
+};

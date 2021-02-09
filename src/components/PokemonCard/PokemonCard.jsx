@@ -8,7 +8,7 @@ import {
   NavLink,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
-import "./styles.scss"; 
+import "./styles.scss";
 
 const PokemonCard = ({ item }) => {
   const [cardSelected, setCardSelected] = useState(false);
