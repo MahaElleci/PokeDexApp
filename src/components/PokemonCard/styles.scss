@@ -6,6 +6,7 @@
   background-color: #fff;
   text-align: center;
   overflow: hidden;
+  height: 250px;
   &__expand {
     width: 500px;
   }
@@ -48,7 +49,6 @@
       text-align: initial;
       width: 88%;
       float: left;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
   }
   &__content {
@@ -57,5 +57,23 @@
     display: flex;
     flex-direction: column;
     align-items: baseline;
+  }
+}
+.popover-body {
+  .details-section {
+    p {
+      font-weight: bold;
+      margin-bottom: 0.4rem;
+      margin-top: 0.4rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  }
+  .accordion {
+    .link {
+      padding: 0;
+    }
   }
 }
