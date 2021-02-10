@@ -71,7 +71,7 @@ const PokemonCard = ({ item }) => {
   }
   useEffect(() => {
     if (cardSelected) {
-      if (!localStorage.getItem(item.name)) {
+      if (!localStorage.getItem(item.name) || localStorage.getItem("bulbasaur") === "{}") {
         actions.setSelectedPokedata(item.url);
       } else actions.setCachedPokemon(localStorage.getItem(item.name));
     }
