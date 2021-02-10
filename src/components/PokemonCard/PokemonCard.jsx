@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useOvermind } from "../../overmind";
+import loader from "../../assets/loader.gif";
 import {
   Popover,
   OverlayTrigger,
@@ -14,10 +15,12 @@ const PokemonCard = ({ item }) => {
   const [cardSelected, setCardSelected] = useState(false);
   const { state, actions } = useOvermind();
   const { selectedPokemon } = state;
+
   const popover = (
     <Popover id="popover-basic">
       <Popover.Title as="h3">Pokemon Details</Popover.Title>
       <Popover.Content>
+        {state.isLoading && <img className="loader" src={loader} />}
         <div className="details-section">
           <p>Types: </p>
           <ul>
@@ -62,15 +65,21 @@ const PokemonCard = ({ item }) => {
     </Popover>
   );
 
+  function cacheAPIData(data) {
+    localStorage.setItem(item.name, JSON.stringify(data));
+  }
   useEffect(() => {
     if (cardSelected) {
-      actions.setSelectedPokedata(item.url);
+      if (!localStorage.getItem(item.name)) {
+        actions.setSelectedPokedata(item.url);
+      } else actions.setCachedPokemon(localStorage.getItem(item.name));
     }
   }, [cardSelected]);
 
   return (
     <OverlayTrigger
-      onToggle={() => setCardSelected(true)}
+      onToggle={() => setCardSelected(!cardSelected)}
+      onEntered={() => cacheAPIData(selectedPokemon)}
       trigger="click"
       placement="right-start"
       overlay={popover}
