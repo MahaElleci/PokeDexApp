@@ -84,7 +84,7 @@ const PokemonCard = ({ item }) => {
           onToggle={() => setCardSelected(!cardSelected)}
           onEntered={() => cacheAPIData(selectedPokemon)}
           onEntering={() => {
-            history.push(`/pokemon/${item.name}`);
+            history.push(`/PokeDexApp/pokemon/${item.name}`);
           }}
           trigger="click"
           placement="right-start"
