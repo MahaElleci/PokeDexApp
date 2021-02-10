@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/PokeDexApp/static/css/main.b1cc3fa7.chunk.css",
-    "main.js": "/PokeDexApp/static/js/main.859460a9.chunk.js",
-    "main.js.map": "/PokeDexApp/static/js/main.859460a9.chunk.js.map",
+    "main.js": "/PokeDexApp/static/js/main.9bb4a9b0.chunk.js",
+    "main.js.map": "/PokeDexApp/static/js/main.9bb4a9b0.chunk.js.map",
     "runtime-main.js": "/PokeDexApp/static/js/runtime-main.21278501.js",
     "runtime-main.js.map": "/PokeDexApp/static/js/runtime-main.21278501.js.map",
     "static/css/2.658248ec.chunk.css": "/PokeDexApp/static/css/2.658248ec.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.658248ec.chunk.css",
     "static/js/2.6966492c.chunk.js",
     "static/css/main.b1cc3fa7.chunk.css",
-    "static/js/main.859460a9.chunk.js"
+    "static/js/main.9bb4a9b0.chunk.js"
   ]
 }
