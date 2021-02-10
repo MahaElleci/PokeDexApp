@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Route } from "react-router-dom";
 import { useOvermind } from "../../overmind";
 import loader from "../../assets/loader.gif";
-import {
-  Popover,
-  OverlayTrigger,
-  Accordion,
-  Card,
-  NavLink,
-} from "react-bootstrap";
+import { Popover, OverlayTrigger, Accordion, NavLink } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles.scss";
 
 const PokemonCard = ({ item }) => {
   const [cardSelected, setCardSelected] = useState(false);
+  const [detailsOpened, setDetailsOpened] = useState(false);
   const { state, actions } = useOvermind();
   const { selectedPokemon } = state;
 
@@ -31,8 +27,13 @@ const PokemonCard = ({ item }) => {
           </ul>
         </div>
         <Accordion defaultActiveKey="0">
-          <Accordion.Toggle as={NavLink} variant="link" eventKey="1">
-            See More
+          <Accordion.Toggle
+            onClick={() => setDetailsOpened(!detailsOpened)}
+            as={NavLink}
+            variant="link"
+            eventKey="1"
+          >
+            {detailsOpened ? "See Less" : "See More"}
           </Accordion.Toggle>
           <Accordion.Collapse eventKey="1">
             <div className="details-section">
@@ -77,23 +78,30 @@ const PokemonCard = ({ item }) => {
   }, [cardSelected]);
 
   return (
-    <OverlayTrigger
-      onToggle={() => setCardSelected(!cardSelected)}
-      onEntered={() => cacheAPIData(selectedPokemon)}
-      trigger="click"
-      placement="right-start"
-      overlay={popover}
-      rootClose
-    >
-      <div className="pokemonCard">
-        <div className="pokemonCard__heading">
-          <div className="pokemonCard__heading__imagePlaceholder">
-            <img src="https://cache.desktopnexus.com/thumbseg/1327/1327833-bigthumbnail.jpg" />
+    <Route
+      render={({ history }) => (
+        <OverlayTrigger
+          onToggle={() => setCardSelected(!cardSelected)}
+          onEntered={() => cacheAPIData(selectedPokemon)}
+          onEntering={() => {
+            history.push(`/pokemon/${item.name}`);
+          }}
+          trigger="click"
+          placement="right-start"
+          overlay={popover}
+          rootClose
+        >
+          <div className="pokemonCard">
+            <div className="pokemonCard__heading">
+              <div className="pokemonCard__heading__imagePlaceholder">
+                <img src="https://cache.desktopnexus.com/thumbseg/1327/1327833-bigthumbnail.jpg" />
+              </div>
+              <h3 className="pokemonCard__heading__title">{item.name}</h3>
+            </div>
           </div>
-          <h3 className="pokemonCard__heading__title">{item.name}</h3>
-        </div>
-      </div>
-    </OverlayTrigger>
+        </OverlayTrigger>
+      )}
+    />
   );
 };
 

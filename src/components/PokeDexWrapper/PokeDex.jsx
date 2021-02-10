@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import { useOvermind } from "../../overmind";
 import PokemonCard from "../PokemonCard/PokemonCard";
 import loader from "../../assets/loader.gif";
@@ -19,7 +20,11 @@ const PokeDex = () => {
       {state.isLoading && <img className="loader" src={loader} />}
       <div className="pokeDex-wrapper__cards">
         {state.pokemons.map((item, index) => {
-          return <PokemonCard key={index} item={item} />;
+          return (
+            <Router>
+              <PokemonCard key={index} item={item} />
+            </Router>
+          );
         })}
       </div>
     </div>

@@ -59,7 +59,12 @@
     align-items: baseline;
   }
 }
-.popover-body {
+.popover-body { 
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 50px;
+  }
   .details-section {
     p {
       font-weight: bold;
@@ -72,7 +77,7 @@
     }
   }
   .accordion {
-    .link {
+    .nav-link {
       padding: 0;
     }
   }
